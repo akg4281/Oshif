@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
+    #'debug_toolbar',
     'welcome',
 )
 
@@ -55,7 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -85,7 +85,14 @@ WSGI_APPLICATION = 'wsgi.application'
 from . import database
 
 DATABASES = {
-    'default': database.config()
+       'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+		'NAME': 'mydb',
+		'USER': 'postgres',
+		'PASSWORD': '',
+		'HOST': '172.16.30.176',
+		'PORT': '5432',
+    },
 }
 
 
@@ -109,4 +116,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

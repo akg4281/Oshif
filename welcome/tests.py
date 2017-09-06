@@ -25,3 +25,6 @@ class DbEngine(TestCase):
         settings = info()
         self.assertEqual(settings['engine'], 'SQLite')
         self.assertEqual(settings['is_sqlite'], True)
+		
+
+	

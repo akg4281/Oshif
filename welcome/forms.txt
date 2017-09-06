@@ -1,0 +1,6 @@
+class MyForm(forms.Form):
+	#class Meta:
+	#	model = mytable
+	#	fields = ['name','place']
+	name = StringField();
+		

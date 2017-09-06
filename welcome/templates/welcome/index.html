@@ -1,13 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html><head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
                 <title>Apache HTTP Server Test Page powered by CentOS</title>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/open-sans.css" type="text/css" />
 
-<style type="text/css"><!--
+<style type="text/css"> 
 
 body {
   font-family: "Open Sans", Helvetica, sans-serif;
@@ -61,30 +64,76 @@ h2 {
    padding-top: 30px;
 }
 
-    --></style>
+    </style>
 </head>
 <body>
-  <div class="jumbotron text-center">
-    <div class="container">
-          <h1>Welcome to Wipro SDx Summit</h1>
-                </div>
-  </div>
-  <div class="main text-center">
+	<div class="jumbotron text-center">
+		<div class="container">
+			<h1>Welcome to Wipro SDx Summit</h1>
+		</div>
+	</div>
+	<div class="main text-center">
     <div class="container text-center">
        <div class="row">
-                        <div class="col-lg-18">
-                                <p class="lead">SDX Summit Details</p>
-                                </div>
+			<div class="col-lg-12">
+				<p class="lead">SDX Summit Details</p>
+								<div class="col-lg-6">
 
-                        </div>
-            </div>
-                </div>
-        </div>
-  <div class="footer text-center">
-    <div class="container text-center">
-       <div class="row">
-                        <div class="col-lg-18">
-<table>
+					
+					<form method="post" action='/savemydata/' method="post" >	{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Place</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+<button type="submit" class="btn btn-default">Submit</button>
+</form>
+	
+					{% if datalist %}
+					<div class="container">
+					<table class="table-striped">
+						<thead>
+						<tr>
+							<th>Name</th>
+							<th>Place</th>
+						</tr>
+						</thead>
+						{% for data in datalist %}
+						<tbody>
+						<tr>
+							<td>{{ data.name }}</td> 
+							<td>{{ data.place }}</td>	
+						</tr>
+						</tbody>
+					{% endfor %}
+					</table>
+					{% else %}
+						<p>No Data Available.</p>
+					{% endif %}
+						</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="footer text-center">
+		<div class="container text-center">
+			<div class="row">
+		   
+
+
+				<div class="col-lg-18">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<!--table>
   <tr>
     <th>Venue</th>
     <th>Date</th>
@@ -101,7 +150,7 @@ h2 {
     <td>Dubai</td>
     <td>January 2017</td>
   </tr>
-</table>
+</table--	>
                             </div>
 
                         </div>
